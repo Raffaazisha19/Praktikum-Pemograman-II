@@ -12,20 +12,18 @@ public class Main {
 
         int count = 0;
         int number = startNumber;
-        StringBuilder result = new StringBuilder();
 
         do {
             if (number % 2 != 0) {
-                if (result.length() > 0) {
-                    result.append(", ");
+                if (count > 0) {
+                    System.out.print(", ");
                 }
-                result.append(number);
+                System.out.print(number);
                 count++;
             }
             number++;
         } while (count < n);
 
-        System.out.println(result.toString());
-
+        System.out.println();
     }
 }
