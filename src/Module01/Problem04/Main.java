@@ -7,41 +7,32 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Tangan Abu: ");
-        String inputAbu = scanner.nextLine().trim().toUpperCase();
+        String abu = scanner.nextLine().replace(" ", "").toUpperCase();
 
         System.out.print("Tangan Bagas: ");
-        String inputBagas = scanner.nextLine().trim().toUpperCase();
+        String bagas = scanner.nextLine().replace(" ", "").toUpperCase();
 
-        String[] handAbu = inputAbu.split(" ");
-        String[] handBagas = inputBagas.split(" ");
-
-        int scoreAbu = 0;
-        int scoreBagas = 0;
+        int score = 0;
 
         for (int i = 0; i < 3; i++) {
-            String abu = handAbu[i];
-            String bagas = handBagas[i];
+            char a = abu.charAt(i);
+            char b = bagas.charAt(i);
 
-            if (abu.equals(bagas)) {
-                // Draw, no score
-            } else if (
-                (abu.equals("B") && bagas.equals("G")) ||
-                (abu.equals("G") && bagas.equals("K")) ||
-                (abu.equals("K") && bagas.equals("B"))
-            ) {
-                scoreAbu++;
-            } else {
-                scoreBagas++;
+            if (a != b) {
+                if ((a == 'B' && b == 'G') || (a == 'G' && b == 'K') || (a == 'K' && b == 'B')) {
+                    score++;
+                } else {
+                    score--;
+                }
             }
         }
 
-        if (scoreAbu > scoreBagas) {
+        if (score > 0) {
             System.out.println("Abu");
-        } else if (scoreBagas > scoreAbu) {
+        } else if (score < 0) {
             System.out.println("Bagas");
         } else {
             System.out.println("Seri");
         }
-
     }
 }
