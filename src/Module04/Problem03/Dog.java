@@ -11,7 +11,7 @@ public class Dog extends Pet {
     }
 
     public void displayDogDetails() {
-        super.display(); // Memanggil output dari Pet
+        super.display();
         System.out.println("Memiliki warna bulu : " + this.furColor);
         System.out.print("Memiliki kemampuan : ");
 
